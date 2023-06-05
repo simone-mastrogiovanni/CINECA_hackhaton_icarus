@@ -1,13 +1,13 @@
 # Software set up for the Hackhaton
 
-Follow the next steps to install and run icarogw for the Hackhaton
+Follow the next steps to install and run icarogw for the Hackhaton on the Marconi 100 cluster.
+
+Once logged in on the clusters
 
 ```
-conda create -n icarus python=3.8
-```
-
-```
-conda activate icarus
+module load python/3.8.2
+python3 -m venv icarogw
+source icarogw/bin/activate
 ```
 
 ```
