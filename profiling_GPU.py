@@ -11,8 +11,8 @@ import sys
 
 
 
-Nev = 1000
-Nrep = 1000
+Nev = 500
+Nrep = 100
 timing_flag = True
 
 # Again we need to tell icarogw what reference cosmology was used to build the catalog
