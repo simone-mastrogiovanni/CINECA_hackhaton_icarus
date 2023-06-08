@@ -5,7 +5,6 @@ import h5py
 from astropy.cosmology import FlatLambdaCDM
 import time
 from tqdm import tqdm
-from icarogw.cupy_pal import *
 import sys
 import bilby
 
@@ -25,12 +24,12 @@ nside =64
 # For this check we will use NSBH injections from the R&P group
 data=h5py.File('endo3_nsbhpop-LIGO-T2100113-v12.hdf5')
 # We select the maximum IFAR among the searches
-ifarmax=xp.vstack([data['injections'][key] for key in ['ifar_cwb', 'ifar_gstlal', 'ifar_mbta', 'ifar_pycbc_bbh', 'ifar_pycbc_hyperbank']])
-ifarmax=xp.max(ifarmax,axis=0)
+ifarmax=np.vstack([data['injections'][key] for key in ['ifar_cwb', 'ifar_gstlal', 'ifar_mbta', 'ifar_pycbc_bbh', 'ifar_pycbc_hyperbank']])
+ifarmax=np.max(ifarmax,axis=0)
 time_O3 = (28519200/86400)/365 # Time of observation for O3 in tr
 # The prior for this injection set is saved in source frame
-prior=np2cp(data['injections/mass1_source_mass2_source_sampling_pdf'][()]*data['injections/redshift_sampling_pdf'][()]/(xp.pi*4)) # Add prior on sky angle (isotropic)
-prior*=icarogw.conversions.source2detector_jacobian(np2cp(data['injections/redshift'][()]),cosmo_ref) # Add jacobian to convert prior in detector frame
+prior=data['injections/mass1_source_mass2_source_sampling_pdf'][()]*data['injections/redshift_sampling_pdf'][()]/(np.pi*4) # Add prior on sky angle (isotropic)
+prior*=icarogw.conversions.source2detector_jacobian(data['injections/redshift'][()],cosmo_ref) # Add jacobian to convert prior in detector frame
 # Prepare the input data
 injections_dict={'mass_1':data['injections/mass1'][()],'mass_2':data['injections/mass2'][()],
                 'luminosity_distance':data['injections/distance'][()],

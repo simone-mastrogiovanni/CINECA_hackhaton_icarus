@@ -1,5 +1,3 @@
-
-
 import os
 f = open("config.py", "w")
 f.write('CUPY=False')
@@ -13,7 +11,6 @@ import h5py
 from astropy.cosmology import FlatLambdaCDM
 import time
 from tqdm import tqdm
-from icarogw.cupy_pal import *
 import sys
 
 
