@@ -8,10 +8,10 @@ from tqdm import tqdm
 import sys
 from icarogw.cupy_pal import *
 
-Ntot = [1e5,3e5,5e5,1e6,3e6,5e6,1e7,3e7,5e7]
-Nsamples = 10000
+Ntot = [1e4,5e4,1e5,3e5,5e5,1e6,3e6,5e6,1e7,3e7,5e7]
+Nsamples = 5000
 Nrep = 100
-Ninj = 10000
+Ninj = 5000
 timing_flag = 'timing/GPU.txt'
 
 # Again we need to tell icarogw what reference cosmology was used to build the catalog
