@@ -12,7 +12,7 @@ import sys
 from icarogw.cupy_pal import *
 os.remove('config.py')
 
-Ntot = [5e4,1e5,5e5,1e6,5e6]
+Ntot = [5e4,1e5,3e5,5e5,7e5,1e6]
 Nsamples = 5000
 Nrep = 100
 Ninj = 10000
