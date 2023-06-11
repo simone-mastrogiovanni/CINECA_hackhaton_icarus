@@ -12,10 +12,10 @@ import sys
 from icarogw.cupy_pal import *
 os.remove('config.py')
 
-Ntot = [5e4,1e5,3e5,5e5,7e5,1e6]
-Nsamples = 5000
+Ntot = [5e3,1e4,5e4,1e5,3e5,5e5,1e6]
+Nsamples = 4000
 Nrep = 100
-Ninj = 10000
+Ninj = 1000
 timing_flag = 'timing/CPU.txt'
 
 # Again we need to tell icarogw what reference cosmology was used to build the catalog
